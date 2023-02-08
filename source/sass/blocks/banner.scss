@@ -1,0 +1,132 @@
+.banner {
+  background: url("../../img/icons/Group\ 1003.svg") top 25px left -110px no-repeat;
+  background-color: $background;
+  height: 560px;
+}
+
+.banner__wrap {
+  display: flex;
+  background: url("../../img/gallery/slider-1 1x.png") bottom 0 right 36px no-repeat;
+  height: 100%;
+  animation-name: fade;
+  animation-duration: 1.5s;
+  opacity: 1;
+}
+
+@keyframes fade {
+  from {
+    background-size: 0;
+  }
+
+  to {
+    background-size: 540px auto;
+  }
+}
+
+.banner__toggle {
+  width: 126px;
+  position: relative;
+  align-self: center;
+}
+
+.banner__btn {
+  position: relative;
+  display: block;
+  width: 54px;
+  height: 54px;
+  border: 1px solid $main;
+  border-radius: 50%;
+  background-color: transparent;
+
+  &--prev {
+    margin-left: 24px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 22px;
+      background-image: url("../../img/icons/Arrow\ L.svg");
+      background-repeat: no-repeat;
+      width: 16px;
+      height: 8px;
+    }
+
+    &:hover::before {
+      left: 10px;
+    }
+  }
+
+  &--next {
+    margin-left: 49px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 22px;
+      background-image: url("../../img/icons/Arrow\ R.svg");
+      background-repeat: no-repeat;
+      width: 16px;
+      height: 8px;
+    }
+
+    &:hover::before {
+      left: 26px;
+    }
+  }
+}
+
+.banner__wrapper {
+  max-width: 1048px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.banner__button {
+  padding: 19px 50px;
+}
+
+.banner__text {
+  padding-top: 156px;
+}
+
+.banner__sale {
+  font-family: "Prata", "Georgia", serif;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.banner__title {
+  font-family: "Prata", "Georgia", serif;
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-bottom: 55px;
+}
+
+.banner__pagination {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.banner__pagination-list {
+  display: flex;
+}
+
+.banner__pagination-item {
+  @include ul-style;
+  // margin: 0 auto;
+  width: 8px;
+  height: 8px;
+  border: 1px solid $main;
+  border-radius: 50%;
+  margin: 4px;
+  background-color: transparent;
+
+  &--active {
+    background-color: $main;
+  }
+}

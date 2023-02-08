@@ -1,0 +1,287 @@
+.header__wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+    "A A A A A B B C C C C C"
+    "D D D D D D D D D D D D";
+  margin-bottom: 25px;
+}
+
+.header__about {
+  grid-area: A;
+}
+
+.header__logo {
+  grid-area: B;
+}
+
+.header__user {
+  grid-area: C;
+}
+
+.header__about {
+  grid-area: A;
+}
+
+.header__logo {
+  grid-area: B;
+  margin: 0 auto;
+}
+
+.logo__link {
+  display: block;
+}
+
+.logo__name {
+  font-family: "Prata", "Georgia", serif;
+  font-size: 32px;
+  font-weight: 400;
+  text-align: center;
+
+  &--left {
+    color: $logo;
+  }
+
+  &--bottom {
+    font-family: "Inter", "Arial", sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+    letter-spacing: 3px;
+  }
+}
+
+.header__user {
+  grid-area: C;
+  justify-self: end;
+}
+
+.header__wrap {
+  grid-area: D;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.about__list {
+  position: relative;
+  @include ul-style;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  padding: 28px 0;
+}
+
+.about__item--town {
+  position: relative;
+  padding: 0 24px;
+  padding-right: 38px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: -2px;
+    background-image: url("../../img/icons/point.svg");
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover::before {
+    background-image: url("../../img/icons/point_hover.svg");
+  }
+}
+
+.about__item--town span {
+  position: absolute;
+  top: 0;
+  right: 8px;
+}
+
+.about__dropDownList {
+  @include ul-style;
+  position: absolute;
+  z-index: 10;
+  padding-top: 5px;
+  display: none;
+}
+
+.about__animate {
+  display: block;
+  transform: translateY(-150%);
+  animation: drop 1s forwards;
+}
+
+.about__item--city {
+  margin: 0;
+  padding: 5px 0;
+  background-color: $white;
+}
+
+.about__checkmark {
+  padding: 0 5px;
+  display: none;
+}
+
+.about__drop {
+  padding: 0 5px;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(-150%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.about__item--phone {
+  padding-left: 68px;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 40px;
+    top: -2px;
+    background-image: url("../../img/icons/phone.svg");
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover::before {
+    background-image: url("../../img/icons/phone_hover.svg");
+  }
+}
+
+.header__user {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 28px 0;
+}
+
+.nav-user__registration {
+  @include ul-style;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.registration__item {
+  padding: 0 10px;
+  position: relative;
+
+  &--enter {
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 2px;
+      width: 1px;
+      height: 10px;
+      background-color: $main;
+    }
+  }
+
+  &:hover {
+    color: rgba($main, 0.5);
+  }
+}
+
+.nav-user__list {
+  @include ul-style;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  margin-left: 48px;
+}
+
+.data-user__item {
+  padding: 0 14px;
+
+  &--heart {
+    position: relative;
+  }
+}
+
+.data-user__count {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  width: 19px;
+  height: 19px;
+  font-size: 10px;
+  font-weight: 800;
+  background-color: $count;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 19px;
+  color: $white;
+}
+
+.data-user__item:last-child {
+  padding-right: 0;
+}
+
+.nav-main__list {
+  @include ul-style;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header__bottom--wrap {
+  grid-area: D;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 18px;
+}
+
+.nav-main__item {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 21px 30px;
+
+  &:hover,
+  &:focus {
+    color: rgba($main, 0.5);
+    cursor: pointer;
+  }
+
+  &--active {
+    color: rgba($main, 0.5);
+  }
+}
+
+.nav-search {
+  position: relative;
+  font-size: 14px;
+  display: block;
+  margin-right: 48px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 16px;
+    background-image: url("../../img/icons/search.svg");
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.nav-search__input {
+  padding: 16px 10px;
+  border: none;
+  font-size: 14px;
+
+  &::placeholder {
+    color: $placeholder;
+  }
+}

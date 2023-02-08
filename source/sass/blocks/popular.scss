@@ -1,0 +1,55 @@
+.popular {
+  padding: 16px 0;
+}
+
+.popular__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+
+  @media (min-width: $tablet-width) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px;
+  }
+}
+
+.popular__item {
+  @include ul-style;
+  height: 259px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-color: $background;
+}
+
+.popular_img-wrap {
+  height: 232px;
+  display: flex;
+}
+
+.popular__img {
+  display: block;
+  margin: auto;
+
+  &:hover {
+    transform: scale(1.3);
+  }
+}
+
+.popular__name {
+  display: flex;
+  min-height: 27px;
+  margin-bottom: 14px;
+}
+
+.popular__inner {
+  margin: auto;
+}

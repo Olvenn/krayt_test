@@ -1,0 +1,47 @@
+.button {
+  font: inherit;
+  display: block;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 600;
+  width: 200px;
+  padding-top: 19px;
+  padding-bottom: 19px;
+  margin: 0;
+  text-transform: uppercase;
+  box-sizing: border-box;
+
+  &--main {
+    background-color: $main;
+    color: $white;
+    border: none;
+
+    &:hover,
+    &:focus {
+      background-color: $hover-btn;
+      cursor: pointer;
+    }
+
+    &:active {
+      background-color: $pressed-btn;
+    }
+  }
+
+  &--outline {
+    background-color: $white;
+    border: 1px $main solid;
+    color: $main;
+
+    &:hover,
+    &:focus {
+      background-color: $main;
+      color: $white;
+    }
+
+    &:active {
+      background-color: $pressed-btn;
+      color: $white;
+    }
+  }
+}

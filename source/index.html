@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krayt</title>
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/favicons/32.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/favicons/180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" href="fonts/ptsans.woff2" type="font/woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/ptsansbold.woff2" type="font/woff2" as="font" crossorigin="anonymous">
+</head>
+
+<body class="page__body">
+  <svg style="display:none">
+    <symbol id="heart" width="18" height="16" viewBox="0 0 18 16" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M8.99998 15.5C8.46248 15.0233 7.85498 14.5275 7.21248 14H7.20415C4.94165 12.15 2.37748 10.0566 1.24498 7.54829C0.87291 6.74973 0.675732 5.8809 0.666635 4.99996C0.664151 3.7912 1.14895 2.63245 2.01149 1.7856C2.87402 0.938751 4.04147 0.475289 5.24998 0.49996C6.23384 0.501514 7.19651 0.785861 8.02331 1.31913C8.38662 1.55493 8.71533 1.84017 8.99998 2.16663C9.28622 1.84145 9.61502 1.55638 9.97748 1.31913C10.8039 0.785756 11.7664 0.501392 12.75 0.49996C13.9585 0.475289 15.1259 0.938751 15.9885 1.7856C16.851 2.63245 17.3358 3.7912 17.3333 4.99996C17.3248 5.88231 17.1276 6.75262 16.755 7.55246C15.6225 10.0608 13.0591 12.1533 10.7966 14L10.7883 14.0066C10.145 14.5308 9.53831 15.0266 9.00081 15.5066L8.99998 15.5ZM5.24998 2.16663C4.47374 2.15691 3.72504 2.454 3.16665 2.99329C2.62863 3.52176 2.32794 4.24583 2.33324 4.99996C2.34275 5.64204 2.48817 6.27484 2.75998 6.85663C3.29457 7.93888 4.0159 8.91834 4.89081 9.74996C5.71665 10.5833 6.66665 11.39 7.48831 12.0683C7.71581 12.2558 7.94748 12.445 8.17915 12.6341L8.32498 12.7533C8.54748 12.935 8.77748 13.1233 8.99998 13.3083L9.01081 13.2983L9.01581 13.2941H9.02081L9.02831 13.2883H9.03248H9.03664L9.05165 13.2758L9.08581 13.2483L9.09165 13.2433L9.10081 13.2366H9.10581L9.11331 13.23L9.66665 12.7758L9.81165 12.6566C10.0458 12.4658 10.2775 12.2766 10.505 12.0891C11.3266 11.4108 12.2775 10.605 13.1033 9.76746C13.9783 8.93626 14.6997 7.95705 15.2341 6.87496C15.5109 6.28813 15.6584 5.64871 15.6667 4.99996C15.6701 4.24816 15.3696 3.52687 14.8333 2.99996C14.276 2.45823 13.5272 2.1587 12.75 2.16663C11.8016 2.15857 10.8949 2.5561 10.2583 3.25913L8.99998 4.70913L7.74165 3.25913C7.10503 2.5561 6.19838 2.15857 5.24998 2.16663Z" />
+    </symbol>
+    <symbol id="chart" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="5.1" y1="10" x2="5.1" y2="17" stroke="#303030" stroke-width="2.2" />
+      <line x1="10.1" y1="2" x2="10.1" y2="17" stroke="#303030" stroke-width="2.2" />
+      <line x1="15.1" y1="5" x2="15.1" y2="17" stroke="#303030" stroke-width="2.2" />
+    </symbol>
+    <symbol id="cart" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="5" width="16" height="13" rx="1" fill="white" />
+      <mask id="path-2-inside-1_1711_27" fill="white">
+        <rect x="2" y="5" width="16" height="13" rx="1" />
+      </mask>
+      <rect x="2" y="5" width="16" height="13" rx="1" stroke="#303030" stroke-width="3.2"
+        mask="url(#path-2-inside-1_1711_27)" />
+      <path d="M6 9L6 6C6 3.79086 7.79086 2 10 2V2C12.2091 2 14 3.79086 14 6L14 9" stroke="#303030"
+        stroke-width="1.6" />
+    </symbol>
+    <symbol id="coolicon" width="20" height="18" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M7.94668e-08 5.40001C-0.000248434 3.95035 0.582385 2.56146 1.61681 1.54584C2.65124 0.53022 4.05058 -0.026834 5.5 1.1704e-05C7.21732 -0.0091083 8.85599 0.719186 10 2.00001C11.144 0.719186 12.7827 -0.0091083 14.5 1.1704e-05C15.9494 -0.026834 17.3488 0.53022 18.3832 1.54584C19.4176 2.56146 20.0002 3.95035 20 5.40001C20 10.756 13.621 14.8 10 18C6.387 14.773 7.94668e-08 10.76 7.94668e-08 5.40001Z" />
+    </symbol>
+    <symbol id="share" width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M9.66667 3.58329C9.66667 1.97246 10.9725 0.666626 12.5833 0.666626C14.1942 0.666626 15.5 1.97246 15.5 3.58329C15.5 5.19411 14.1942 6.49996 12.5833 6.49996C11.769 6.49996 11.0327 6.16626 10.5036 5.62816L6.22756 8.21884C6.29649 8.46745 6.33333 8.7294 6.33333 8.99996C6.33333 9.24301 6.3036 9.47912 6.24758 9.70485L10.6009 12.2773C11.1212 11.7949 11.8178 11.5 12.5833 11.5C14.1942 11.5 15.5 12.8058 15.5 14.4166C15.5 16.0274 14.1942 17.3333 12.5833 17.3333C10.9725 17.3333 9.66667 16.0274 9.66667 14.4166C9.66667 14.1736 9.69639 13.9375 9.7524 13.7118L5.39908 11.1394C4.87875 11.6217 4.18214 11.9166 3.41667 11.9166C1.80585 11.9166 0.5 10.6108 0.5 8.99996C0.5 7.38914 1.80585 6.08329 3.41667 6.08329C4.15373 6.08329 4.82695 6.3567 5.34042 6.80763L9.72225 4.15284C9.68578 3.96864 9.66667 3.7782 9.66667 3.58329ZM12.5833 2.33329C11.893 2.33329 11.3333 2.89294 11.3333 3.58329C11.3333 4.27364 11.893 4.83329 12.5833 4.83329C13.2737 4.83329 13.8333 4.27364 13.8333 3.58329C13.8333 2.89294 13.2737 2.33329 12.5833 2.33329ZM3.41667 7.74996C2.72632 7.74996 2.16667 8.30961 2.16667 8.99996C2.16667 9.69031 2.72632 10.25 3.41667 10.25C4.10701 10.25 4.66667 9.69031 4.66667 8.99996C4.66667 8.30961 4.10701 7.74996 3.41667 7.74996ZM12.5833 13.1666C11.893 13.1666 11.3333 13.7263 11.3333 14.4166C11.3333 15.107 11.893 15.6666 12.5833 15.6666C13.2737 15.6666 13.8333 15.107 13.8333 14.4166C13.8333 13.7263 13.2737 13.1666 12.5833 13.1666Z"
+        fill="#C9C9C9" />
+    </symbol>
+    <symbol id="union" width="20" height="19" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M11.0044 1.5C11.0044 0.947715 10.5567 0.5 10.0044 0.5C9.45211 0.5 9.00439 0.947715 9.00439 1.5V3.54989C8.04476 3.64609 7.12848 3.87731 6.27405 4.20772L5.4446 3.05037C5.12289 2.60146 4.49817 2.49836 4.04927 2.82007C3.60036 3.14179 3.49726 3.76651 3.81898 4.21541L4.45792 5.10695C3.92702 5.43178 3.434 5.79271 2.98539 6.17708C1.24791 7.6658 0 9.66836 0 11.5C0 13.3316 1.24791 15.3342 2.98539 16.8229C4.76222 18.3453 7.23586 19.5 10 19.5C12.7639 19.5 15.2376 18.3462 17.0145 16.8241C18.7522 15.3355 20 13.333 20 11.5C20 9.66702 18.7522 7.66444 17.0145 6.17591C16.6848 5.89346 16.331 5.62368 15.9559 5.37161L16.6253 4.43759C16.947 3.98869 16.844 3.36398 16.3951 3.04225C15.9462 2.72053 15.3214 2.82362 14.9997 3.27252L14.1918 4.39975C13.2102 3.96793 12.1376 3.66528 11.0044 3.55075V1.5ZM10 7.5C7.79086 7.5 6 9.29086 6 11.5C6 13.7091 7.79086 15.5 10 15.5C12.2091 15.5 14 13.7091 14 11.5C14 9.29086 12.2091 7.5 10 7.5Z" />
+    </symbol>
+    <symbol id="icon-full-star" width="17" height="16" viewBox="0 0 17 16" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M8.5 0L10.7982 5.33674L16.584 5.87336L12.2186 9.70826L13.4962 15.3766L8.5 12.41L3.50383 15.3766L4.78137 9.70826L0.416019 5.87336L6.20176 5.33674L8.5 0Z"
+        fill="#E1A661" />
+    </symbol>
+    <symbol id="icon-star" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M8.5 1.26413L10.339 5.53451L10.4564 5.80719L10.7521 5.83461L15.3817 6.26399L11.8886 9.33262L11.6656 9.52856L11.7309 9.81819L12.7531 14.3539L8.75528 11.9801L8.5 11.8285L8.24472 11.9801L4.24687 14.3539L5.26913 9.81819L5.33441 9.52856L5.11136 9.33262L1.61828 6.264L6.24794 5.83461L6.54356 5.80719L6.66099 5.53451L8.5 1.26413Z"
+        stroke="#E1A661" />
+    </symbol>
+    <symbol id="checkmark" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4.29998 7.9L0.56665 4.16667L1.28332 3.45L4.29998 6.46667L10.7 0.0666656L11.4167 0.783333L4.29998 7.9Z"
+        fill="black" />
+    </symbol>
+    <symbol id="drop" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 0.712158L4.23753 3.94969L7.47507 0.712158" stroke="#303030" stroke-width="2" />
+    </symbol>
+  </svg>
+
+  <header class="header">
+    <div class="header__wrapper">
+      <div class="header__about about">
+        <ul class="about__list">
+          <li class="about__item about__item--town">
+            <div class="about__wrap">
+              Санкт-Петербург
+              <span class="about__ about__checkmark">
+                <svg class="about__svg about__svg--checkmark" width="12" height="8">
+                  <use xlink:href="#checkmark"></use>
+                </svg>
+              </span>
+              <span class="about__drop">
+                <svg class="about__svg about__svg--drop" width="12" height="8">
+                  <use xlink:href="#drop"></use>
+                </svg>
+              </span>
+            </div>
+            <ul class="about__dropDownList">
+              <li class="about__item about__item--city">
+                Москва
+              <li class="about__item about__item--city">
+                Нижний Новгород
+              </li>
+              <li class="about__item about__item--city">
+                Ростов-на-Дону
+              </li>
+            </ul>
+          </li>
+          <li class="about__item about__item--phone">
+            8 800 785-25-35
+          </li>
+        </ul>
+      </div>
+      <div class="header__logo logo">
+        <a class="logo__link" href="#">
+          <div class="logo__name">
+            <span class="logo__name--left">Goldy</span>
+            <span class="logo__name--right">Store</span>
+          </div>
+          <span class="logo__name--bottom">ювелирный магазин</span>
+        </a>
+      </div>
+      <div class="header__user nav-user">
+        <ul class="nav-user__registration registration">
+          <li class="registration__item registration__item--enter">
+            <a class="registration__link" href="#">
+              Вход
+            </a>
+          </li>
+          <li class="registration__item registration__item--registration">
+            <a class="registration__link" href="#">
+              Регистрация
+            </a>
+          </li>
+        </ul>
+        <ul class="nav-user__list data-user">
+          <li class="data-user__item data-user__item--heart">
+            <svg class="data-user__svg data-user__svg--heart" width="18" height="16">
+              <use xlink:href="#heart"></use>
+            </svg>
+            <span class="data-user__count">23</span>
+          </li>
+          <li class="data-user__item  data-user__item--data">
+            <a href="#">
+              <svg class="mdata-user__svg data-user__svg--chart" width="20" height="20">
+                <use xlink:href="#chart"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="data-user__item data-user__item--cart">
+            <a href="#">
+              <svg class="data-user__svg data-user__svg--cart" width="20" height="20">
+                <use xlink:href="#cart"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="header__bottom--wrap">
+        <nav class="header__main nav-main">
+          <ul class="nav-main__list">
+            <li class="nav-main__item nav-main__item--active">
+              <a class="nav-main__link" href="#">
+                Каталог
+              </a>
+            </li>
+            <li class="nav-main__item">
+              <a class="nav-main__link" href="#">
+                Акции
+              </a>
+            </li>
+            <li class="nav-main__item">
+              <a class="nav-main__link" href="#">
+                Бренды
+              </a>
+            </li>
+            <li class="nav-main__item">
+              <a class="nav-main__link" href="#">
+                Магазины
+              </a>
+            </li>
+            <li class="nav-main__item">
+              <a class="nav-main__link" href="#">
+                О нас
+              </a>
+            </li>
+            <li class="nav-main__item">
+              <a class="nav-main__link" href="#">
+                Доставка и оплата
+              </a>
+            </li>
+            <li class="nav-main__item">
+              <a class="nav-main__link" href="#">
+                Статьи
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <nav class="page__header__search nav-search">
+          <form class="nav-search__form" id="form-search">
+            <input class="nav-search__input" id="search" value="Поиск по сайту" type="text" autoComplete="off"
+              placeholder="Поиск по сайту">
+            <label class="visually-hidden" for="search">Поиск по сайту</label>
+          </form>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="page__main index-main">
+
+    <h1 class="visually-hidden">Goldy Store - Главная страница.</h1>
+
+    <section class="index-main__banner banner">
+      <div class="banner__wrap">
+        <div class="banner__toggle">
+          <button class="banner__btn banner__btn--prev" type="button" aria-label="Предыдущий банер.">
+          </button>
+        </div>
+        <div class="banner__wrapper">
+          <div class="banner__text">
+            <h2 class="visually-hidden">Баннер Goldy Store</h2>
+            <p class="banner__sale">
+              Суперскидка до 60%
+            </p>
+            <div class="banner__title">
+              На бриллианты
+            </div>
+            <div class="banner__button-wrap">
+              <button class="banner__button button button--main" type="button" aria-label="Сделать заказ.">
+                Подробнее
+              </button>
+            </div>
+          </div>
+          <div class="banner__pagination">
+            <div class="banner__pagination-list">
+              <button
+                class="banner__pagination-item banner__pagination-item--1 banner__pagination-item--active"></button>
+              <button class="banner__pagination-item pbanner__pagination-item--2"></button>
+              <button class="banner__pagination-item banner__pagination-item--3"></button>
+            </div>
+          </div>
+        </div>
+        <div class="banner__toggle">
+          <button class="banner__btn banner__btn--next" type="button" aria-label="Следующий банер.">
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="index-main__popular popular">
+      <h2 class="popular__title section-title">Популярные категории</h2>
+      <ul class="popular__list">
+        <li class="popular__item">
+          <div class="popular_img-wrap">
+            <img class="popular__img" src="img/popular/ring-1.png" srcset="img/popular/ring-1.png 2x"
+              alt="Фото кольца2." width="127" height="100">
+          </div>
+          <div class="popular__name">
+            <span class="popular__inner">Кольца</span>
+          </div>
+        </li>
+        <li class="popular__item">
+          <div class="popular_img-wrap">
+            <img class="popular__img" width="102" height="130" src="img/popular/earring-1.png"
+              srcset="img/popular/earring-1.png 2x" alt="Фото сережек.">
+          </div>
+          <div class="popular__name">
+            <span class="popular__inner">Серьги</span>
+          </div>
+        </li>
+        <li class="popular__item">
+          <div class="popular_img-wrap">
+            <img class="popular__img" width="117" height="93" src="img/popular/engagement-ring-1.png"
+              srcset="img/popular/engagement-ring-1.png 2x" alt="Фото сережек.">
+          </div>
+          <div class="popular__name">
+            <span class="popular__inner">Помолвочные<br>кольца</span>
+          </div>
+        </li>
+        <li class="popular__item">
+          <div class="popular_img-wrap">
+            <img class="popular__img" width="141" height="118" src="img/popular/bracelet-1.png"
+              srcset="img/popular/bracelet-1.png 2x" alt="Фото браслета.">
+          </div>
+          <div class="popular__name">
+            <span class="popular__inner">Браслеты</span>
+          </div>
+        </li>
+        <li class="popular__item">
+          <div class="popular_img-wrap">
+            <img class="popular__img" width="128" height="128" src="img/popular/necklace-1.png"
+              srcset="img/popular/necklace-1.png 2x" alt="Фото колье.">
+          </div>
+          <div class="popular__name">
+            <span class="popular__inner">Колье и подвески</span>
+          </div>
+        <li class="popular__item">
+          <div class="popular_img-wrap">
+            <img class="popular__img" width="122" height="147" src="img/popular/watch-1.png"
+              srcset="img/popular/watch-1.png 2x" alt="Фото часов.">
+          </div>
+          <div class="popular__name">
+            <span class="popular__inner">Часы</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="index-main__sale sale">
+      <h2 class="sale__title  section-title">Распродажа</h2>
+      <div class="sale__wrap">
+        <ul class="sale__nav">
+          <li class="sale__nav-item">
+            <button class="sale__nav-btn sale__nav-btn--active" type="button">
+              Кольца
+            </button>
+          </li>
+          <li class="sale__nav-item">
+            <button class="sale__nav-btn" type="button">
+              Серьги
+            </button>
+          </li>
+          <li class="sale__nav-item">
+            <button class="sale__nav-btn" type="button">
+              Браслеты
+            </button>
+          </li>
+          <li class="sale__nav-item">
+            <button class="sale__nav-btn" type="button">
+              Часы
+            </button>
+          </li>
+        </ul>
+        <div class="sale__next"></div>
+      </div>
+
+      <ul class="sale__list">
+        <li class="sale__item sale__item--1">
+          <button class="sale__btn sale__heart" type="button">
+            <svg class="sale__svg sale__svg--heart" width="20" height="18">
+              <use xlink:href="#coolicon"></use>
+            </svg>
+          </button>
+          <button class="sale__btn sale__union" type="button">
+            <svg class="sale__svg sale__svg--union" width="20" height="19">
+              <use xlink:href="#union"></use>
+            </svg>
+          </button>
+          <ul class="sale__pagination">
+            <li class="sale__pagination-item sale__pagination__item--1 sale__pagination-item--active"></li>
+            <li class="sale__pagination-item sale__pagination__item--2"></li>
+            <li class="sale__pagination-item sale__pagination__item--3"></li>
+          </ul>
+          <div class="sale__amount-wrap">
+            <div class="sale__price">
+              41 000 ₽
+            </div>
+            <div class="sale__price-all">
+              65 000 ₽
+            </div>
+            <div class="sale__percent">
+              -45%
+            </div>
+          </div>
+          <p class="sale__name">
+            Стильное кольцо из белого золота c бриллиантами
+          </p>
+          <div class="sale__footer property">
+            <ul class="property__list">
+              <li class="property__item material">
+                <div class="property__title material__title">
+                  Белое золото
+                </div>
+                <ul class="material__list">
+                  <li class="material__item material__item--active">Белое золото</li>
+                  <li class="material__item">Желтое золото</li>
+                  <li class="material__item">Серебро</li>
+                </ul>
+              </li>
+              <li class="property__item size">
+                <div class="property__title size__title">
+                  Размер:
+                  <span class="size__data">
+                    16
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="sale__item sale__item--2">
+          <button class="sale__btn sale__heart" type="button">
+            <svg class="sale__svg sale__svg--heart" width="20" height="18">
+              <use xlink:href="#coolicon"></use>
+            </svg>
+          </button>
+          <button class="sale__btn sale__union" type="button">
+            <svg class="sale__svg sale__svg--union" width="20" height="19">
+              <use xlink:href="#union"></use>
+            </svg>
+          </button>
+          <ul class="sale__pagination">
+            <li class="sale__pagination-item sale__pagination__item--1 sale__pagination-item--active"></li>
+            <li class="sale__pagination-item sale__pagination__item--2"></li>
+            <li class="sale__pagination-item sale__pagination__item--3"></li>
+          </ul>
+          <div class="sale__amount-wrap">
+            <div class="sale__price">
+              56 000 ₽
+            </div>
+          </div>
+          <p class="sale__name">
+            Стильное кольцо из белого золота c бриллиантами
+          </p>
+          <div class="sale__footer property">
+            <ul class="property__list">
+              <li class="property__item material">
+                <div class="property__title material__title">
+                  Белое золото
+                </div>
+                <ul class="material__list">
+                  <li class="material__item material__item--active">Белое золото</li>
+                  <li class="material__item">Желтое золото</li>
+                  <li class="material__item">Серебро</li>
+                </ul>
+              </li>
+              <li class="property__item size">
+                <div class="property__title size__title">
+                  Размер:
+                  <span class="size__data">
+                    16
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="sale__item sale__item--3">
+          <button class="sale__btn sale__heart" type="button">
+            <svg class="sale__svg sale__svg--heart" width="20" height="18">
+              <use xlink:href="#coolicon"></use>
+            </svg>
+          </button>
+          <button class="sale__btn sale__union" type="button">
+            <svg class="sale__svg sale__svg--union" width="20" height="19">
+              <use xlink:href="#union"></use>
+            </svg>
+          </button>
+          <ul class="sale__pagination">
+            <li class="sale__pagination-item sale__pagination__item--1 sale__pagination-item--active"></li>
+            <li class="sale__pagination-item sale__pagination__item--2"></li>
+            <li class="sale__pagination-item sale__pagination__item--3"></li>
+          </ul>
+          <div class="sale__amount-wrap">
+            <div class="sale__price">
+              37 500 ₽
+            </div>
+          </div>
+          <p class="sale__name">
+            Стильное кольцо из белого золота c бриллиантами
+          </p>
+          <div class="sale__footer property">
+            <ul class="property__list">
+              <li class="property__item material">
+                <div class="property__title material__title">
+                  Белое золото
+                </div>
+                <ul class="material__list">
+                  <li class="material__item material__item--active">Белое золото</li>
+                  <li class="material__item">Желтое золото</li>
+                  <li class="material__item">Серебро</li>
+                </ul>
+              </li>
+              <li class="property__item size">
+                <div class="property__title size__title">
+                  Размер:
+                  <span class="size__data">
+                    16
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="sale__item sale__item--4">
+          <button class="sale__btn sale__heart" type="button">
+            <svg class="sale__svg sale__svg--heart" width="20" height="18">
+              <use xlink:href="#coolicon"></use>
+            </svg>
+          </button>
+          <button class="sale__btn sale__union" type="button">
+            <svg class="sale__svg sale__svg--union" width="20" height="19">
+              <use xlink:href="#union"></use>
+            </svg>
+          </button>
+          <ul class="sale__pagination">
+            <li class="sale__pagination-item sale__pagination__item--1 sale__pagination-item--active"></li>
+            <li class="sale__pagination-item sale__pagination__item--2"></li>
+            <li class="sale__pagination-item sale__pagination__item--3"></li>
+          </ul>
+          <div class="sale__amount-wrap">
+            <div class="sale__price">
+              39 200 ₽
+            </div>
+          </div>
+          <p class="sale__name">
+            Стильное кольцо из белого золота c бриллиантами
+          </p>
+          <div class="sale__footer property">
+            <ul class="property__list">
+              <li class="property__item material">
+                <div class="property__title material__title">
+                  Белое золото
+                </div>
+                <ul class="material__list">
+                  <li class="material__item material__item--active">Белое золото</li>
+                  <li class="material__item">Желтое золото</li>
+                  <li class="material__item">Серебро</li>
+                </ul>
+              </li>
+              <li class="property__item size">
+                <div class="property__title size__title">
+                  Размер:
+                  <span class="size__data">
+                    16
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="index-main__sale-for sale-for">
+      <h2 class="visually-hidden">Размер скидок на разные украшения.</h2>
+      <ul class="sale-for__list">
+        <li class="sale-for__item sale-for__item--1">
+          <div class="sale-for__title">
+            Скидки<br>на все украшения<br>с бриллиантами
+          </div>
+          <div class="sale-for__count sale-for__count--1">
+            <span class="sale-for__before">
+              До
+            </span>
+            <span class="sale-for__percent">
+              -50%
+            </span>
+          </div>
+        </li>
+        <li class="sale-for__item sale-for__item--2">
+          <div class="sale-for__title">
+            Скидки<br>на кольца<br>и браслеты
+          </div>
+          <div class="sale-for__count sale-for__count--2">
+            <span class="sale-for__before">
+              До
+            </span>
+            <span class="sale-for__percent">
+              -40%
+            </span>
+          </div>
+        </li>
+        <li class="sale-for__item sale-for__item--3">
+          <div class="sale-for__title">
+            Cнижение цен<br>на обручальные<br>кольца
+          </div>
+          <div class="sale-for__count sale-for__count--3">
+            <span class="sale-for__before">
+              До
+            </span>
+            <span class="sale-for__percent">
+              -60%
+            </span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="index-main__day-product day-product">
+      <div class="day-product__header">
+        <h2 class="day-product__title  section-title">Товар дня</h2>
+        <div class="toggle-wrap">
+          <button class="toggle-btns toggle-btns--prev" type="button" aria-label="Следующий товар.">
+          </button>
+          <button class="toggle-btns toggle-btns--next" type="button" aria-label="Предыдущий товар.">
+          </button>
+        </div>
+      </div>
+
+      <div class="day-product__wrap">
+        <div class="day-product__photos">
+          <ul class="day-product__marks">
+            <li class="day-product__item day-product__item--new">
+              New
+            </li>
+            <li class="day-product__item day-product__item--hit">
+              Хит
+            </li>
+            <li class="day-product__item day-product__item--sale">
+              Sale
+            </li>
+          </ul>
+        </div>
+
+        <div class="day-product__info info">
+          <div class="day-product__rate">
+            <ul class="day-product__stars">
+              <li class="day-product__star">
+                <svg width="17" height="17" aria-hidden="true">
+                  <use xlink:href="#icon-full-star"></use>
+                </svg>
+              </li>
+              <li class="day-product__star">
+                <svg width="17" height="17" aria-hidden="true">
+                  <use xlink:href="#icon-full-star"></use>
+                </svg>
+              </li>
+              <li class="day-product__star">
+                <svg width="17" height="17" aria-hidden="true">
+                  <use xlink:href="#icon-full-star"></use>
+                </svg>
+              </li>
+              <li class="day-product__star">
+                <svg width="17" height="17" aria-hidden="true">
+                  <use xlink:href="#icon-full-star"></use>
+                </svg>
+              </li>
+              <li class="day-product__star">
+                <svg width="17" height="17" aria-hidden="true">
+                  <use xlink:href="#icon-star"></use>
+                </svg>
+              </li>
+              <li class="day-product__star">
+                <span class="visually-hidden">Всего оценок:</span>
+                <p class="day-product__rate-count">
+                  4,2
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <h3 class="day-product__name">
+            Кольцо из золота с бриллиантами
+          </h3>
+          <p class="day-product__article">
+            Артикул: 1012076
+          </p>
+          <div class="day-product__data">
+            <div class="day-product__wrap-price">
+              <div class="day-product__price">
+                22 000 ₽
+              </div>
+              <div class="day-product__price-all">
+                22 000 ₽
+              </div>
+              <div class="day-product__percent">
+                -45%
+              </div>
+            </div>
+            <ul class="day-product__time time">
+              <li class="time__item">
+                <p class="time__count time__count--hour">
+                  12
+                </p>
+                <p class="time__name">
+                  часов
+                </p>
+              </li>
+              <li class="time__item time__count--min">
+                <p class="time__count">
+                  46
+                </p>
+                <p class="time__name">
+                  минут
+                </p>
+              </li>
+              <li class="time__item">
+                <p class="time__count time__count--sec">
+                  51
+                </p>
+                <p class="time__name">
+                  секунд
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="day-product__color color">
+            <h4 class="color__title">
+              Цвет
+            </h4>
+            <ul class="color__list">
+              <li class="color___item color___item--silver">
+              </li>
+              <li class="color___item color___item--gold color___item--active">
+              </li>
+              <li class="color___item color___item--bronze">
+              </li>
+            </ul>
+          </div>
+          <div class="day-product__size size">
+            <h4 class="size_title">
+              Размер&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?
+            </h4>
+            <ul class="size__list">
+              <li class="size___item size___item--active">
+                16,5
+              </li>
+              <li class="size___item">
+                17,5
+              </li>
+              <li class="size___item">
+                18,5
+              </li>
+              <li class="size___item">
+                19
+              </li>
+              <li class="size___item">
+                19,5
+              </li>
+              <li class="size___item">
+                19,5
+              </li>
+              <li class="size___item">
+                18,5
+              </li>
+              <li class="size___item">
+                19
+              </li>
+              <li class="size___item disabled">
+                19,5
+              </li>
+              <li class="size___item disabled">
+                19,5
+              </li>
+            </ul>
+          </div>
+          <div class=" day-product__action action">
+            <div class="action__button-wrap">
+              <h2 class="visually-hidden">Выделить или купить товар.</h2>
+              <button class="action__button-cart button button--main" type="button" aria-label="В корзину.">В
+                корзину</button>
+              <button class="action__button-buy button button--outline" type="button" aria-label="Купить в 1 клик.">
+                Купить в 1 клик
+              </button>
+            </div>
+            <ul class="action__user-activities">
+              <li class="action__user-item  action__user-item--like">
+                <a class="action__link" href="#">
+                  Сохранить
+                </a>
+              </li>
+              <li class="action__user-item action__user-item--compare">
+                <a class="action__link" href="#">
+                  Сравнить
+                </a>
+              </li>
+              <li class="action__user-item action__user-item--share">
+                <a class="action__link" href="#">
+                  Поделиться
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="index-main__articles articles">
+      <div class="articles__header">
+        <h2 class="articles__name section-title">
+          Статьи
+        </h2>
+        <div class="articles__read">
+          Читать все
+        </div>
+      </div>
+      <div class="articles__list">
+        <div class="articles__item">
+          <a class="articles__link" href="#">
+            <div class="articles__photo">
+              <img class="articles__img" width="128" height="128" src="img/articles/article1.png"
+                srcset="img/articles/article1.png 2x" alt="Фото статьи.">
+            </div>
+            <p class="articles__date">
+              21 сентября 2021
+            </p>
+            <p class="articles__title">
+              Обручальные кольца: тренды 2021
+            </p>
+          </a>
+        </div>
+        <div class="articles__item">
+          <a class="articles__link" href="#">
+            <div class="articles__photo">
+              <img class="articles__img" width="128" height="128" src="img/articles/article2.png"
+                srcset="img/articles/article2.png 2x" alt="Фото статьи.">
+            </div>
+            <p class="articles__date">
+              25 сентября 2021
+            </p>
+            <p class="articles__title">
+              Главные ювелирные тренды года
+            </p>
+          </a>
+        </div>
+        <div class="articles__item">
+          <a class="articles__link" href="#">
+            <div class="articles__photo">
+              <img class="articles__img" width="128" height="128" src="img/articles/article3.png"
+                srcset="img/articles/article3.png 2x" alt="Фото статьи.">
+            </div>
+            <p class="articles__date">
+              21 сентября 2021
+            </p>
+            <p class="articles__title">
+              Жемчуг: 7 малоизвестных фактов о культовом украшении
+            </p>
+          </a>
+        </div>
+        <div class="articles__item">
+          <a class="articles__link" href="#">
+            <div class="articles__photo">
+              <img class="articles__img" width="128" height="128" src="img/articles/article4.png"
+                srcset="img/articles/article4.png 2x" alt="Фото статьи.">
+            </div>
+            <p class="articles__date">
+              21 сентября 2021
+            </p>
+            <p class="articles__title">
+              Как отличить золото от подделки: 10 практических советов
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

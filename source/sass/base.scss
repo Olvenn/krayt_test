@@ -1,0 +1,36 @@
+input {
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+body {
+  font-family: "Inter", "Arial", sans-serif;
+  min-height: 100%;
+  min-width: 320px;
+  font-size: 14px;
+  line-height: 1;
+  color: $main;
+  // background-color: $white;
+
+  margin: 0 auto;
+
+  max-width: 1920px;
+  z-index: -1;
+  // border: 2px solid black;
+}
+
+.section-title {
+  font-family: "Prata", "Georgia", serif;
+  font-size: 25px;
+  line-height: 1;
+  font-weight: 400;
+
+  @media (min-width: $tablet-width) {
+    font-size: 33px;
+  }
+
+  @media (min-width: $desktop-width) {
+    font-size: 40px;
+  }
+}

@@ -1,0 +1,57 @@
+.articles__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.articles__item {
+  width: 100%;
+}
+
+.articles__img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.articles__date {
+  color: $background;
+}
+
+.articles__title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.articles__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.articles__read {
+  position: relative;
+  font-weight: 500;
+  padding: 10px 0;
+  padding-right: 40px;
+  margin-top: 28px;
+  text-transform: uppercase;
+
+  &:hover {
+    color: rgba($main, 0.5);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: -21px;
+    top: 10px;
+    background-image: url("../../img/icons/Arrow R.svg");
+    background-size: 26px;
+    background-repeat: no-repeat;
+    width: 46px;
+    height: 20px;
+  }
+}
